@@ -335,45 +335,49 @@ public class LocationManager extends CordovaPlugin implements BeaconConsumer {
             Log.w(TAG, "InvocationTargetException while checking for ACCESS_FINE_LOCATION:", e);
         }
 
-        try {
+        // try {
 
-            final Integer permissionCheckResult = (Integer) checkSelfPermissionMethod.invoke(
-                    activity, Manifest.permission.ACCESS_BACKGROUND_LOCATION);
+        // final Integer permissionCheckResult = (Integer)
+        // checkSelfPermissionMethod.invoke(
+        // activity, Manifest.permission.ACCESS_BACKGROUND_LOCATION);
 
-            Log.i(TAG, "Permission check result for ACCESS_BACKGROUND_LOCATION: " +
-                    String.valueOf(permissionCheckResult));
+        // Log.i(TAG, "Permission check result for ACCESS_BACKGROUND_LOCATION: " +
+        // String.valueOf(permissionCheckResult));
 
-            if (permissionCheckResult == PackageManager.PERMISSION_GRANTED) {
-                Log.i(TAG, "Permission for ACCESS_BACKGROUND_LOCATION has already been granted.");
-                return;
-            }
+        // if (permissionCheckResult == PackageManager.PERMISSION_GRANTED) {
+        // Log.i(TAG, "Permission for ACCESS_BACKGROUND_LOCATION has already been
+        // granted.");
+        // return;
+        // }
 
-            final Method requestPermissionsMethod = getRequestPermissionsMethod();
+        // final Method requestPermissionsMethod = getRequestPermissionsMethod();
 
-            if (requestPermissionsMethod == null) {
-                Log.e(TAG, "Could not obtain the method Activity.requestPermissions. Will " +
-                        "not ask for ACCESS_FINE_LOCATION even though we seem to be on a " +
-                        "supported version of Android.");
-                return;
-            }
+        // if (requestPermissionsMethod == null) {
+        // Log.e(TAG, "Could not obtain the method Activity.requestPermissions. Will " +
+        // "not ask for ACCESS_FINE_LOCATION even though we seem to be on a " +
+        // "supported version of Android.");
+        // return;
+        // }
 
-            try {
-                requestPermissionsMethod.invoke(activity,
-                        new String[] { Manifest.permission.ACCESS_BACKGROUND_LOCATION },
-                        PERMISSION_REQUEST_BACKGROUND_LOCATION);
-            } catch (IllegalAccessException e) {
-                Log.e(TAG, "IllegalAccessException while requesting permission for " +
-                        "ACCESS_BACKGROUND_LOCATION:", e);
-            } catch (InvocationTargetException e) {
-                Log.e(TAG, "InvocationTargetException while requesting permission for " +
-                        "ACCESS_BACKGROUND_LOCATION:", e);
-            }
+        // try {
+        // requestPermissionsMethod.invoke(activity,
+        // new String[] { Manifest.permission.ACCESS_BACKGROUND_LOCATION },
+        // PERMISSION_REQUEST_BACKGROUND_LOCATION);
+        // } catch (IllegalAccessException e) {
+        // Log.e(TAG, "IllegalAccessException while requesting permission for " +
+        // "ACCESS_BACKGROUND_LOCATION:", e);
+        // } catch (InvocationTargetException e) {
+        // Log.e(TAG, "InvocationTargetException while requesting permission for " +
+        // "ACCESS_BACKGROUND_LOCATION:", e);
+        // }
 
-        } catch (final IllegalAccessException e) {
-            Log.w(TAG, "IllegalAccessException while checking for ACCESS_BACKGROUND_LOCATION:", e);
-        } catch (final InvocationTargetException e) {
-            Log.w(TAG, "InvocationTargetException while checking for ACCESS_BACKGROUND_LOCATION:", e);
-        }
+        // } catch (final IllegalAccessException e) {
+        // Log.w(TAG, "IllegalAccessException while checking for
+        // ACCESS_BACKGROUND_LOCATION:", e);
+        // } catch (final InvocationTargetException e) {
+        // Log.w(TAG, "InvocationTargetException while checking for
+        // ACCESS_BACKGROUND_LOCATION:", e);
+        // }
     }
 
     private Method getCheckSelfPermissionMethod() {
