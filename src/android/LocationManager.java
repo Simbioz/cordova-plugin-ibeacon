@@ -317,6 +317,8 @@ public class LocationManager extends CordovaPlugin implements BeaconConsumer {
                 return;
             }
 
+            Log.i(TAG, "LANGUAGE" + Locale.getDefault().getLanguage());
+
             final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
             builder.setTitle(
                     Locale.getDefault().getLanguage() == "en" ? "Use your location" : "Accès à votre position");
