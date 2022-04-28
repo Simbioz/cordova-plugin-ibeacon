@@ -318,9 +318,11 @@ public class LocationManager extends CordovaPlugin implements BeaconConsumer {
             }
 
             final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-            builder.setTitle("Use your location");
-            builder.setMessage(
-                    "To guide you through the museum, allow Pointe-à-Callière app to use your location while using the app.");
+            builder.setTitle(
+                    Locale.getDefault().getLanguage() == "en" ? "Use your location" : "Accès à votre position");
+            builder.setMessage(Locale.getDefault().getLanguage() == "en"
+                    ? "To guide you through the museum, allow Pointe-à-Callière app to use your location while using the app."
+                    : "Pour vous guider dans le musée, autorisez l'application Pointe-à-Callière à accéder à votre position.");
             builder.setPositiveButton(android.R.string.ok, null);
             builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
                 @SuppressLint("NewApi")
