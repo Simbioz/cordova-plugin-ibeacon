@@ -322,8 +322,12 @@ public class LocationManager extends CordovaPlugin implements BeaconConsumer {
 
             final AlertDialog.Builder builder = new AlertDialog.Builder(activity);
             // Resource provided by RCC config.
-            builder.setTitle(R.string.locationUsageTitle);
-            builder.setMessage(R.string.locationUsageDescription);
+            String locationUsageTitle = cordova.getActivity().getString(cordova.getActivity().getResources()
+                    .getIdentifier("locationUsageTitle", "string", cordova.getActivity().getPackageName()));
+            String locationUsageDescription = cordova.getActivity().getString(cordova.getActivity().getResources()
+                    .getIdentifier("locationUsageDescription", "string", cordova.getActivity().getPackageName()));
+            builder.setTitle(locationUsageTitle);
+            builder.setMessage(locationUsageDescription);
             builder.setPositiveButton(android.R.string.ok, null);
             builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
                 @SuppressLint("NewApi")
